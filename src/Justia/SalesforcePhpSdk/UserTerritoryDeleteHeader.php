@@ -1,4 +1,4 @@
-<?php namespace Justia\ForceDotComToolkitForPhp;
+<?php namespace Justia\SalesforcePhpSdk;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
