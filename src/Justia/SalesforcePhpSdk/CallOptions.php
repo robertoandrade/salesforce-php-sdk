@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -26,20 +26,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-class LocaleOptions
+class CallOptions
 {
-    public $language;
+    public $client;
+    public $defaultNamespace;
 
-    /**
-     * Class constructor.
-     *
-     * @param string $language
-     * @return void
-     */
-    public function __construct($language)
+    public function __construct($client, $defaultNamespace = null)
     {
-        $this->language = $language;
+        $this->client = $client;
+        $this->defaultNamespace = $defaultNamespace;
     }
 }
 

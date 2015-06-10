@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
     /*
      * Copyright (c) 2007, salesforce.com, inc.
@@ -26,34 +26,39 @@
      * POSSIBILITY OF SUCH DAMAGE.
      */
 
-/**
- * To be used with Create and Update operations.
- * Only one attribute can be set at a time.
- *
- * @package SalesforceSoapClient
- */
-class AssignmentRuleHeader
-{
-    // int
-    public $assignmentRuleId;
-    // boolean
-    public $useDefaultRuleFlag;
-
     /**
-     * Constructor.  Only one param can be set.
+     * SforceSoapClient class.
      *
-     * @param int $id AssignmentRuleId
-     * @param boolean $flag UseDefaultRule flag
+     * @package SalesforceSoapClient
      */
-    public function __construct($id = null, $flag = null)
+// When parsing partner WSDL, when PHP SOAP sees NewValue and OldValue, since
+// the element has a xsi:type attribute with value 'string', it drops the
+// string content into the parsed output and loses the tag name. Removing the
+// xsi:type forces PHP SOAP to just leave the tags intact
+class SforceSoapClient extends \SoapClient
+{
+    public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
-        if ($id != null) {
-            $this->assignmentRuleId = $id;
+        $response = parent::__doRequest($request, $location, $action, $version, $one_way);
+
+        if (strpos($response, '<sf:OldValue') === false && strpos($response, '<sf:NewValue') === false) {
+            return $response;
         }
 
-        if ($flag != null) {
-            $this->useDefaultRuleFlag = $flag;
+        $dom = new \DOMDocument();
+        $dom->loadXML($response);
+
+        $nodeList = $dom->getElementsByTagName('NewValue');
+        foreach ($nodeList as $key => $node) {
+            $node->removeAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'type');
         }
+
+        $nodeList = $dom->getElementsByTagName('OldValue');
+        foreach ($nodeList as $key => $node) {
+            $node->removeAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'type');
+        }
+
+        return $dom->saveXML();
     }
 }
 

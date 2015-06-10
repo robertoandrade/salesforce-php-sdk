@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -26,15 +26,13 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-class CallOptions
+class UserTerritoryDeleteHeader
 {
-    public $client;
-    public $defaultNamespace;
+    public $transferToUserId;
 
-    public function __construct($client, $defaultNamespace = null)
+    public function __construct($transferToUserId)
     {
-        $this->client = $client;
-        $this->defaultNamespace = $defaultNamespace;
+        $this->transferToUserId = $transferToUserId;
     }
 }
 

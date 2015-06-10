@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
     /*
      * Copyright (c) 2007, salesforce.com, inc.
@@ -28,17 +28,32 @@
 
 /**
  * To be used with Create and Update operations.
+ * Only one attribute can be set at a time.
  *
  * @package SalesforceSoapClient
  */
-class MruHeader
+class AssignmentRuleHeader
 {
-    // boolean that Indicates whether to update the list of most recently used items (True) or not (False).
-    public $updateMruFlag;
+    // int
+    public $assignmentRuleId;
+    // boolean
+    public $useDefaultRuleFlag;
 
-    public function __construct($bool)
+    /**
+     * Constructor.  Only one param can be set.
+     *
+     * @param int $id AssignmentRuleId
+     * @param boolean $flag UseDefaultRule flag
+     */
+    public function __construct($id = null, $flag = null)
     {
-        $this->updateMruFlag = $bool;
+        if ($id != null) {
+            $this->assignmentRuleId = $id;
+        }
+
+        if ($flag != null) {
+            $this->useDefaultRuleFlag = $flag;
+        }
     }
 }
 

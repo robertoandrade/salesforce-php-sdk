@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -25,21 +25,21 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-class EmailHeader
+class MassEmailMessage extends Email
 {
-    public $triggerAutoResponseEmail;
-    public $triggerOtherEmail;
-    public $triggerUserEmail;
+    public function setTemplateId($templateId)
+    {
+        $this->templateId = $templateId;
+    }
 
-    public function __construct(
-        $triggerAutoResponseEmail = false,
-        $triggerOtherEmail = false,
-        $triggerUserEmail = false
-    ) {
-        $this->triggerAutoResponseEmail = $triggerAutoResponseEmail;
-        $this->triggerOtherEmail = $triggerOtherEmail;
-        $this->triggerUserEmail = $triggerUserEmail;
+    public function setWhatIds($array)
+    {
+        $this->whatIds = $array;
+    }
+
+    public function setTargetObjectIds($array)
+    {
+        $this->targetObjectIds = $array;
     }
 }
 

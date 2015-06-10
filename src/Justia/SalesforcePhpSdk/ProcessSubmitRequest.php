@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -26,14 +26,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-class AllowFieldTruncationHeader
+class ProcessSubmitRequest extends ProcessRequest
 {
-    public $allowFieldTruncation;
-
-    public function __construct($allowFieldTruncation)
-    {
-        $this->allowFieldTruncation = $allowFieldTruncation;
-    }
+    public $objectId;
 }
 
 ?>

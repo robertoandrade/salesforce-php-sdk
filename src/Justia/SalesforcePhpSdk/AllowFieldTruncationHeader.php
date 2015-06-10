@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -25,72 +25,15 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-class SingleEmailMessage extends Email
+
+class AllowFieldTruncationHeader
 {
-    public $ccAddresses;
+    public $allowFieldTruncation;
 
-    public function __construct()
+    public function __construct($allowFieldTruncation)
     {
-
-    }
-
-    public function setBccAddresses($addresses)
-    {
-        $this->bccAddresses = $addresses;
-    }
-
-    public function setCcAddresses($addresses)
-    {
-        $this->ccAddresses = $addresses;
-    }
-
-    public function setCharset($charset)
-    {
-        $this->charset = $charset;
-    }
-
-    public function setHtmlBody($htmlBody)
-    {
-        $this->htmlBody = $htmlBody;
-    }
-
-    public function setOrgWideEmailAddressId($orgWideEmailAddressId)
-    {
-        $this->orgWideEmailAddressId = $orgWideEmailAddressId;
-    }
-
-    public function setPlainTextBody($plainTextBody)
-    {
-        $this->plainTextBody = $plainTextBody;
-    }
-
-    public function setTargetObjectId($targetObjectId)
-    {
-        $this->targetObjectId = $targetObjectId;
-    }
-
-    public function setTemplateId($templateId)
-    {
-        $this->templateId = $templateId;
-    }
-
-    public function setToAddresses($array)
-    {
-        $this->toAddresses = $array;
-    }
-
-    public function setWhatId($whatId)
-    {
-        $this->whatId = $whatId;
-    }
-
-    public function setFileAttachments($array)
-    {
-        $this->fileAttachments = $array;
-    }
-
-    public function setDocumentAttachments($array)
-    {
-        $this->documentAttachments = $array;
+        $this->allowFieldTruncation = $allowFieldTruncation;
     }
 }
+
+?>

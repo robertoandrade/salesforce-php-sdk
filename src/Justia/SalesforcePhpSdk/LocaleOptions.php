@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -26,10 +26,21 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-abstract class ProcessRequest
+
+class LocaleOptions
 {
-    public $comments;
-    public $nextApproverIds;
+    public $language;
+
+    /**
+     * Class constructor.
+     *
+     * @param string $language
+     * @return void
+     */
+    public function __construct($language)
+    {
+        $this->language = $language;
+    }
 }
 
 ?>

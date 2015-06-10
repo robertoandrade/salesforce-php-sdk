@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -25,12 +25,11 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-class ProxySettings
+
+class ProcessWorkitemRequest extends ProcessRequest
 {
-    public $host;
-    public $port;
-    public $login;
-    public $password;
+    public $action;
+    public $workitemId;
 }
 
 ?>

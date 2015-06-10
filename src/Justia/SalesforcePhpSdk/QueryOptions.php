@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
     /*
      * Copyright (c) 2007, salesforce.com, inc.
@@ -27,20 +27,23 @@
      */
 
 /**
- * To be used with the Login operation.
+ * To be used with Retrieve, Query, and QueryMore operations.
  *
  * @package SalesforceSoapClient
  */
-class LoginScopeHeader
+class QueryOptions
 {
-    // boolean that Indicates whether to update the list of most recently used items (True) or not (False).
-    public $organizationId;
-    public $portalId;
+    // int - Batch size for the number of records returned in a query or queryMore call. The default is 500; the minimum is 200, and the maximum is 2,000.
+    public $batchSize;
 
-    public function __construct($orgId = null, $portalId = null)
+    /**
+     * Constructor
+     *
+     * @param int $limit Batch size
+     */
+    public function __construct($limit)
     {
-        $this->organizationId = $orgId;
-        $this->portalId = $portalId;
+        $this->batchSize = $limit;
     }
 }
 

@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
 /*
  * Copyright (c) 2007, salesforce.com, inc.
@@ -26,9 +26,21 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-class ProcessSubmitRequest extends ProcessRequest
+class EmailHeader
 {
-    public $objectId;
+    public $triggerAutoResponseEmail;
+    public $triggerOtherEmail;
+    public $triggerUserEmail;
+
+    public function __construct(
+        $triggerAutoResponseEmail = false,
+        $triggerOtherEmail = false,
+        $triggerUserEmail = false
+    ) {
+        $this->triggerAutoResponseEmail = $triggerAutoResponseEmail;
+        $this->triggerOtherEmail = $triggerOtherEmail;
+        $this->triggerUserEmail = $triggerUserEmail;
+    }
 }
 
 ?>

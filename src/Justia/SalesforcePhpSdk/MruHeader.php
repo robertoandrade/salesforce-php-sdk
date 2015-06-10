@@ -1,4 +1,4 @@
-<?php namespace Davispeixoto\ForceDotComToolkitForPhp;
+<?php namespace Justia\ForceDotComToolkitForPhp;
 
     /*
      * Copyright (c) 2007, salesforce.com, inc.
@@ -27,23 +27,18 @@
      */
 
 /**
- * To be used with Retrieve, Query, and QueryMore operations.
+ * To be used with Create and Update operations.
  *
  * @package SalesforceSoapClient
  */
-class QueryOptions
+class MruHeader
 {
-    // int - Batch size for the number of records returned in a query or queryMore call. The default is 500; the minimum is 200, and the maximum is 2,000.
-    public $batchSize;
+    // boolean that Indicates whether to update the list of most recently used items (True) or not (False).
+    public $updateMruFlag;
 
-    /**
-     * Constructor
-     *
-     * @param int $limit Batch size
-     */
-    public function __construct($limit)
+    public function __construct($bool)
     {
-        $this->batchSize = $limit;
+        $this->updateMruFlag = $bool;
     }
 }
 
