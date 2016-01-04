@@ -38,9 +38,9 @@ class QueryResult implements \Iterator
 
     public function __construct($response)
     {
-        $this->queryLocator = $response->queryLocator;
-        $this->done = $response->done;
-        $this->size = $response->size;
+        if (isset($response->queryLocator)) $this->queryLocator = $response->queryLocator;
+        if (isset($response->done)) $this->done = $response->done;
+        if (isset($response->size)) $this->size = $response->size;
 
         $this->pointer = 0;
         $this->sf = false;
