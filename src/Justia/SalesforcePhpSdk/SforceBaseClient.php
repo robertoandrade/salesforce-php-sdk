@@ -230,7 +230,7 @@ class SforceBaseClient
         $this->sforce->__setLocation($location);
     }
 
-    private function setHeaders($call = null)
+    protected function setHeaders($call = null)
     {
         $this->sforce->__setSoapHeaders(null);
 
