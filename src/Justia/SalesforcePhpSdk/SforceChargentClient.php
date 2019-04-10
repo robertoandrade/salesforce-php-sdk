@@ -44,14 +44,14 @@ class SforceChargentClient extends SforceBaseClient
         $this->setSessionHeader($this->sessionId);
     }
 
-    public function chargeOrder($orderId)
+    public function chargeOrder($chargentRequest)
     {
         $this->setHeaders("process");
 
-        $chargentRequest = new stdClass();
-        $chargentRequest->OrderId = $orderId;
-        
-        return $this->sforce->ChargeOrder_Click($chargentRequest)->result;
+        $params = new stdClass();
+        $params->InputParams = json_encode($chargentRequest);
+
+        return $this->sforce->ChargeOrder_ClickJSON($params)->result;
     }
 }
 
