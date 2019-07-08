@@ -58,6 +58,7 @@ class SforceBaseClient
     protected $queryHeader;
     protected $userTerritoryDeleteHeader;
     protected $sessionHeader;
+    protected $duplicateRuleHeader;
 
     // new headers
     protected $allowFieldTruncationHeader;
@@ -252,6 +253,10 @@ class SforceBaseClient
             if ($header != null) {
                 array_push($header_array, $header);
             }
+            $header = $this->duplicateRuleHeader;
+            if ($header != null) {
+                array_push($header_array, $header);
+            }
         }
 
         if ($call == "login") {
@@ -403,6 +408,19 @@ class SforceBaseClient
             ));
         } else {
             $this->mruHeader = null;
+        }
+    }
+
+    public function setDuplicateRuleHeader($allowSave = null, $includeRecordDetails = null, $runAsCurrentUser = null)
+    {
+        if ($allowSave != null) {
+            $this->duplicateRuleHeader = new SoapHeader($this->namespace, 'DuplicateRuleHeader', array(
+                'allowSave' => $allowSave,
+                'includeRecordDetails' => $includeRecordDetails,
+                'runAsCurrentUser' => $runAsCurrentUser
+            ));
+        } else {
+            $this->duplicateRuleHeader = null;
         }
     }
 
