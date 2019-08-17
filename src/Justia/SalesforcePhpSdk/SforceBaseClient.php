@@ -1042,4 +1042,26 @@ class SforceBaseClient
 
         return $this->sforce->resetPassword($arg)->result;
     }
+
+    public static function ensureSuccess($clientResponse, $args = null)
+    {
+        $isArray = is_array($clientResponse);
+        $success = $isArray ? $clientResponse[0]->success : false;
+        if (!$success)
+        {
+			throw new \Exception(($isArray ? 
+				$clientResponse[0]->errors[0]->statusCode . ': ' . 
+				$clientResponse[0]->errors[0]->message . ' (' . 
+				(isset($clientResponse[0]->errors[0]->fields) ? 
+				 implode(', ', $clientResponse[0]->errors[0]->fields) : 
+				 ($args != null ?
+				 print_r($args, true) : '')
+				 ) . ')' : 
+				 null) ?: 
+				 print_r($clientResponse, true)
+			);
+		}
+		
+		return $clientResponse;
+    }
 }
