@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Web Services API : ChargentOrders.TChargentOperations
+-->
+<definitions targetNamespace="http://soap.sforce.com/schemas/class/ChargentOrders/TChargentOperations" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/ChargentOrders/TChargentOperations">
+ <types>
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/ChargentOrders/TChargentOperations">
+   <xsd:element name="AllowFieldTruncationHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="allowFieldTruncation" type="xsd:boolean"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="CallOptions">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="client" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="DebuggingHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="categories" minOccurs="0" maxOccurs="unbounded" type="tns:LogInfo"/>
+      <xsd:element name="debugLevel" type="tns:LogType"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="LogInfo">
+    <xsd:sequence>
+     <xsd:element name="category" type="tns:LogCategory"/>
+     <xsd:element name="level" type="tns:LogCategoryLevel"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:simpleType name="LogCategory">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Db"/>
+     <xsd:enumeration value="Workflow"/>
+     <xsd:enumeration value="Validation"/>
+     <xsd:enumeration value="Callout"/>
+     <xsd:enumeration value="Apex_code"/>
+     <xsd:enumeration value="Apex_profiling"/>
+     <xsd:enumeration value="Visualforce"/>
+     <xsd:enumeration value="System"/>
+     <xsd:enumeration value="Wave"/>
+     <xsd:enumeration value="Nba"/>
+     <xsd:enumeration value="All"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LogCategoryLevel">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="None"/>
+     <xsd:enumeration value="Finest"/>
+     <xsd:enumeration value="Finer"/>
+     <xsd:enumeration value="Fine"/>
+     <xsd:enumeration value="Debug"/>
+     <xsd:enumeration value="Info"/>
+     <xsd:enumeration value="Warn"/>
+     <xsd:enumeration value="Error"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LogType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="None"/>
+     <xsd:enumeration value="Debugonly"/>
+     <xsd:enumeration value="Db"/>
+     <xsd:enumeration value="Profiling"/>
+     <xsd:enumeration value="Callout"/>
+     <xsd:enumeration value="Detail"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:element name="DebuggingInfo">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="debugLog" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="SessionHeader">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="sessionId" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:simpleType name="ID">
+    <xsd:restriction base="xsd:string">
+     <xsd:length value="18"/>
+     <xsd:pattern value="[a-zA-Z0-9]{18}"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:complexType name="TChargentResult">
+    <xsd:sequence>
+     <xsd:element name="DebugString" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Message" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="order_JSON" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Reload" minOccurs="0" type="xsd:boolean" nillable="true"/>
+     <xsd:element name="responseData" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="ReturnURL" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="Status" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="TransactID" minOccurs="0" type="xsd:string" nillable="true"/>
+     <xsd:element name="transaction_JSON" minOccurs="0" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="AuthorizeOrder_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="AuthorizeOrder_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="AuthorizeOrder_ClickJSON">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="InputParams" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="AuthorizeOrder_ClickJSONResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeAuthorizedTransaction_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="TransactionId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeAuthorizedTransaction_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeAuthorizedTransaction_ClickJSON">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="InputParams" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeAuthorizedTransaction_ClickJSONResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_Batch">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderID" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_BatchResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_ClickJSON">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="InputParams" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="ChargeOrder_ClickJSONResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="createTransaction">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderId" type="tns:ID" nillable="true"/>
+      <xsd:element name="responseMessage" type="xsd:string" nillable="true"/>
+      <xsd:element name="responseStatus" type="xsd:string" nillable="true"/>
+      <xsd:element name="transactionType" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="createTransactionResponse">
+    <xsd:complexType>
+     <xsd:sequence/>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundOrder_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundOrder_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundOrder_ClickJSON">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="InputParams" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundOrder_ClickJSONResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundTransaction_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="TransactionId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundTransaction_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundTransaction_ClickJSON">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="InputParams" type="xsd:string" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="RefundTransaction_ClickJSONResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="TransactionStatus_Batch">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="TransactionId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="TransactionStatus_BatchResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="VoidOrder_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="OrderId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="VoidOrder_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="VoidTransaction_Click">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="TransactionId" type="tns:ID" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="VoidTransaction_ClickResponse">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="result" type="tns:TChargentResult" nillable="true"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+  </xsd:schema>
+ </types>
+ <!-- Message for the header parts -->
+ <message name="Header">
+  <part name="AllowFieldTruncationHeader" element="tns:AllowFieldTruncationHeader"/>
+  <part name="CallOptions" element="tns:CallOptions"/>
+  <part name="DebuggingHeader" element="tns:DebuggingHeader"/>
+  <part name="DebuggingInfo" element="tns:DebuggingInfo"/>
+  <part name="SessionHeader" element="tns:SessionHeader"/>
+ </message>
+ <!-- Operation Messages -->
+ <message name="AuthorizeOrder_ClickRequest">
+  <part element="tns:AuthorizeOrder_Click" name="parameters"/>
+ </message>
+ <message name="AuthorizeOrder_ClickResponse">
+  <part element="tns:AuthorizeOrder_ClickResponse" name="parameters"/>
+ </message>
+ <message name="AuthorizeOrder_ClickJSONRequest">
+  <part element="tns:AuthorizeOrder_ClickJSON" name="parameters"/>
+ </message>
+ <message name="AuthorizeOrder_ClickJSONResponse">
+  <part element="tns:AuthorizeOrder_ClickJSONResponse" name="parameters"/>
+ </message>
+ <message name="ChargeAuthorizedTransaction_ClickRequest">
+  <part element="tns:ChargeAuthorizedTransaction_Click" name="parameters"/>
+ </message>
+ <message name="ChargeAuthorizedTransaction_ClickResponse">
+  <part element="tns:ChargeAuthorizedTransaction_ClickResponse" name="parameters"/>
+ </message>
+ <message name="ChargeAuthorizedTransaction_ClickJSONRequest">
+  <part element="tns:ChargeAuthorizedTransaction_ClickJSON" name="parameters"/>
+ </message>
+ <message name="ChargeAuthorizedTransaction_ClickJSONResponse">
+  <part element="tns:ChargeAuthorizedTransaction_ClickJSONResponse" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_BatchRequest">
+  <part element="tns:ChargeOrder_Batch" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_BatchResponse">
+  <part element="tns:ChargeOrder_BatchResponse" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_ClickRequest">
+  <part element="tns:ChargeOrder_Click" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_ClickResponse">
+  <part element="tns:ChargeOrder_ClickResponse" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_ClickJSONRequest">
+  <part element="tns:ChargeOrder_ClickJSON" name="parameters"/>
+ </message>
+ <message name="ChargeOrder_ClickJSONResponse">
+  <part element="tns:ChargeOrder_ClickJSONResponse" name="parameters"/>
+ </message>
+ <message name="createTransactionRequest">
+  <part element="tns:createTransaction" name="parameters"/>
+ </message>
+ <message name="createTransactionResponse">
+  <part element="tns:createTransactionResponse" name="parameters"/>
+ </message>
+ <message name="RefundOrder_ClickRequest">
+  <part element="tns:RefundOrder_Click" name="parameters"/>
+ </message>
+ <message name="RefundOrder_ClickResponse">
+  <part element="tns:RefundOrder_ClickResponse" name="parameters"/>
+ </message>
+ <message name="RefundOrder_ClickJSONRequest">
+  <part element="tns:RefundOrder_ClickJSON" name="parameters"/>
+ </message>
+ <message name="RefundOrder_ClickJSONResponse">
+  <part element="tns:RefundOrder_ClickJSONResponse" name="parameters"/>
+ </message>
+ <message name="RefundTransaction_ClickRequest">
+  <part element="tns:RefundTransaction_Click" name="parameters"/>
+ </message>
+ <message name="RefundTransaction_ClickResponse">
+  <part element="tns:RefundTransaction_ClickResponse" name="parameters"/>
+ </message>
+ <message name="RefundTransaction_ClickJSONRequest">
+  <part element="tns:RefundTransaction_ClickJSON" name="parameters"/>
+ </message>
+ <message name="RefundTransaction_ClickJSONResponse">
+  <part element="tns:RefundTransaction_ClickJSONResponse" name="parameters"/>
+ </message>
+ <message name="TransactionStatus_BatchRequest">
+  <part element="tns:TransactionStatus_Batch" name="parameters"/>
+ </message>
+ <message name="TransactionStatus_BatchResponse">
+  <part element="tns:TransactionStatus_BatchResponse" name="parameters"/>
+ </message>
+ <message name="VoidOrder_ClickRequest">
+  <part element="tns:VoidOrder_Click" name="parameters"/>
+ </message>
+ <message name="VoidOrder_ClickResponse">
+  <part element="tns:VoidOrder_ClickResponse" name="parameters"/>
+ </message>
+ <message name="VoidTransaction_ClickRequest">
+  <part element="tns:VoidTransaction_Click" name="parameters"/>
+ </message>
+ <message name="VoidTransaction_ClickResponse">
+  <part element="tns:VoidTransaction_ClickResponse" name="parameters"/>
+ </message>
+ <portType name="TChargentOperationsPortType">
+  <operation name="AuthorizeOrder_Click">
+   <input message="tns:AuthorizeOrder_ClickRequest"/>
+   <output message="tns:AuthorizeOrder_ClickResponse"/>
+  </operation>
+  <operation name="AuthorizeOrder_ClickJSON">
+   <input message="tns:AuthorizeOrder_ClickJSONRequest"/>
+   <output message="tns:AuthorizeOrder_ClickJSONResponse"/>
+  </operation>
+  <operation name="ChargeAuthorizedTransaction_Click">
+   <input message="tns:ChargeAuthorizedTransaction_ClickRequest"/>
+   <output message="tns:ChargeAuthorizedTransaction_ClickResponse"/>
+  </operation>
+  <operation name="ChargeAuthorizedTransaction_ClickJSON">
+   <input message="tns:ChargeAuthorizedTransaction_ClickJSONRequest"/>
+   <output message="tns:ChargeAuthorizedTransaction_ClickJSONResponse"/>
+  </operation>
+  <operation name="ChargeOrder_Batch">
+   <input message="tns:ChargeOrder_BatchRequest"/>
+   <output message="tns:ChargeOrder_BatchResponse"/>
+  </operation>
+  <operation name="ChargeOrder_Click">
+   <input message="tns:ChargeOrder_ClickRequest"/>
+   <output message="tns:ChargeOrder_ClickResponse"/>
+  </operation>
+  <operation name="ChargeOrder_ClickJSON">
+   <input message="tns:ChargeOrder_ClickJSONRequest"/>
+   <output message="tns:ChargeOrder_ClickJSONResponse"/>
+  </operation>
+  <operation name="createTransaction">
+   <input message="tns:createTransactionRequest"/>
+   <output message="tns:createTransactionResponse"/>
+  </operation>
+  <operation name="RefundOrder_Click">
+   <input message="tns:RefundOrder_ClickRequest"/>
+   <output message="tns:RefundOrder_ClickResponse"/>
+  </operation>
+  <operation name="RefundOrder_ClickJSON">
+   <input message="tns:RefundOrder_ClickJSONRequest"/>
+   <output message="tns:RefundOrder_ClickJSONResponse"/>
+  </operation>
+  <operation name="RefundTransaction_Click">
+   <input message="tns:RefundTransaction_ClickRequest"/>
+   <output message="tns:RefundTransaction_ClickResponse"/>
+  </operation>
+  <operation name="RefundTransaction_ClickJSON">
+   <input message="tns:RefundTransaction_ClickJSONRequest"/>
+   <output message="tns:RefundTransaction_ClickJSONResponse"/>
+  </operation>
+  <operation name="TransactionStatus_Batch">
+   <input message="tns:TransactionStatus_BatchRequest"/>
+   <output message="tns:TransactionStatus_BatchResponse"/>
+  </operation>
+  <operation name="VoidOrder_Click">
+   <input message="tns:VoidOrder_ClickRequest"/>
+   <output message="tns:VoidOrder_ClickResponse"/>
+  </operation>
+  <operation name="VoidTransaction_Click">
+   <input message="tns:VoidTransaction_ClickRequest"/>
+   <output message="tns:VoidTransaction_ClickResponse"/>
+  </operation>
+ </portType>
+ <binding name="TChargentOperationsBinding" type="tns:TChargentOperationsPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="AuthorizeOrder_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="AuthorizeOrder_ClickJSON">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ChargeAuthorizedTransaction_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ChargeAuthorizedTransaction_ClickJSON">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ChargeOrder_Batch">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ChargeOrder_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="ChargeOrder_ClickJSON">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="createTransaction">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="RefundOrder_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="RefundOrder_ClickJSON">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="RefundTransaction_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="RefundTransaction_ClickJSON">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="TransactionStatus_Batch">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="VoidOrder_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="VoidTransaction_Click">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:header use="literal" part="SessionHeader" message="tns:Header"/>
+    <soap:header use="literal" part="CallOptions" message="tns:Header"/>
+    <soap:header use="literal" part="DebuggingHeader" message="tns:Header"/>
+    <soap:header use="literal" part="AllowFieldTruncationHeader" message="tns:Header"/>
+    <soap:body use="literal" parts="parameters"/>
+   </input>
+   <output>
+    <soap:header use="literal" part="DebuggingInfo" message="tns:Header"/>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+ </binding>
+ <service name="TChargentOperationsService">
+  <documentation></documentation>
+  <port binding="tns:TChargentOperationsBinding" name="TChargentOperations">
+   <soap:address location="https://cs26.salesforce.com/services/Soap/class/ChargentOrders/TChargentOperations"/>
+  </port>
+ </service>
+</definitions>
