@@ -6,6 +6,10 @@
         {
             "name": "Dan Vu Quoc",
             "email": "dan@justia.com"
+        },
+	{
+            "name": "Roberto Andrade",
+            "email": "roberto.andrade@gmail.com"
         }
     ],
     "require": {
